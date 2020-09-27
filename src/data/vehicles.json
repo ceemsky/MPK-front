@@ -1,0 +1,154 @@
+{
+  "lastUpdate": 1601216603176,
+  "vehicles": [
+    {
+      "path": [
+        {
+          "y1": 180099418,
+          "length": 0.0021229670275342127,
+          "x1": 71869874,
+          "y2": 180097942,
+          "angle": 90,
+          "x2": 71877373
+        }
+      ],
+      "color": "0x000000",
+      "heading": 90,
+      "latitude": 180097940,
+      "name": "144 Rżąka",
+      "tripId": "8095261304187090445",
+      "id": "-1152921493727907476",
+      "category": "bus",
+      "longitude": 71877375
+    },
+    {
+      "path": [
+        {
+          "y1": 180155912,
+          "length": 1.7538529014853198E-4,
+          "x1": 71355125,
+          "y2": 180155833,
+          "angle": 270,
+          "x2": 71354498
+        }
+      ],
+      "color": "0x000000",
+      "heading": 270,
+      "latitude": 180155832,
+      "name": "269 Czułówek Kapliczka",
+      "tripId": "8095261304189490696",
+      "id": "-1152921493727908140",
+      "category": "bus",
+      "longitude": 71354500
+    },
+    {
+      "color": "0x000000",
+      "heading": 45,
+      "latitude": 180334428,
+      "name": "268 Bronowice Małe",
+      "tripId": "8095261304190047755",
+      "id": "-1152921493727908302",
+      "category": "bus",
+      "longitude": 72119250
+    },
+    {
+      "path": [
+        {
+          "y1": 180264319,
+          "length": 0.0021826371663645422,
+          "x1": 71790624,
+          "y2": 180261612,
+          "angle": 135,
+          "x2": 71798000
+        }
+      ],
+      "color": "0x000000",
+      "heading": 135,
+      "latitude": 180261612,
+      "name": "179 Dworzec Głowny Zachód",
+      "tripId": "8095261304188302864",
+      "id": "-1152921493727907468",
+      "category": "bus",
+      "longitude": 71798000
+    },
+    {
+      "color": "0x000000",
+      "heading": 0,
+      "latitude": 180286868,
+      "name": "172 Bronowice Małe",
+      "tripId": "8095261304187692557",
+      "id": "-1152921493727907691",
+      "category": "bus",
+      "longitude": 71568875
+    },
+    {
+      "color": "0x000000",
+      "heading": 90,
+      "latitude": 180107944,
+      "name": "135 Golkowice Pętla",
+      "tripId": "8095261304188917261",
+      "id": "-1152921493727907783",
+      "category": "bus",
+      "longitude": 71771375
+    },
+    {
+      "color": "0x000000",
+      "heading": 180,
+      "latitude": 180045460,
+      "name": "503 Górka Narodowa Wschód",
+      "tripId": "8095261304189515275",
+      "id": "-1152921493727908418",
+      "category": "bus",
+      "longitude": 72057000
+    },
+    {
+      "color": "0x000000",
+      "heading": 45,
+      "latitude": 180282030,
+      "name": "503 Górka Narodowa Wschód",
+      "tripId": "8095261304189519370",
+      "id": "-1152921493727907319",
+      "category": "bus",
+      "longitude": 71895375
+    },
+    {
+      "path": [
+        {
+          "y1": 180094579,
+          "length": 7.706756775714695E-4,
+          "x1": 71906375,
+          "y2": 180095479,
+          "angle": 270,
+          "x2": 71903750
+        }
+      ],
+      "color": "0x000000",
+      "heading": 270,
+      "latitude": 180095480,
+      "name": "165 Os.Podwawelskie",
+      "tripId": "8095261304187098638",
+      "id": "-1152921493727907763",
+      "category": "bus",
+      "longitude": 71903750
+    },
+    {
+      "path": [
+        {
+          "y1": 180336478,
+          "length": 0.0018619519327883328,
+          "x1": 71859499,
+          "y2": 180342875,
+          "angle": 0,
+          "x2": 71861501
+        }
+      ],
+      "color": "0x000000",
+      "heading": 0,
+      "latitude": 180342874,
+      "name": "503 Górka Narodowa Wschód",
+      "tripId": "8095261304188397067",
+      "id": "-1152921493727907315",
+      "category": "bus",
+      "longitude": 71861500
+    }]
+}
