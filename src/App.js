@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
 import './App.css';
+import * as vehiclesData from './data/vehicles.json'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    return <Map center={[50.049683, 19.944544]} zoom={13}>
+        <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
+        {vehiclesData.vehicles.map(vehicle => (
+            <Marker
+                key={vehicle.id}
+                position={[
+                    vehicle.latitude/3600000,
+                    vehicle.longitude/3600000
+                ]}
+            />
+
+        ))}
+    </Map>;
+
+
 }
-
-export default App;
