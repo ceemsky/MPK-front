@@ -1,0 +1,25 @@
+<svg width="112" height="78" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet">
+ <defs>
+  <path id="dC9cMKYD5" d="m183.74,123.53l-0.14,-0.08l-3.48,-2.08l-3.57,-1.94l-3.65,-1.8l-3.73,-1.67l-3.81,-1.52l-3.87,-1.38l-3.95,-1.23l-4.01,-1.07l-4.07,-0.92l-4.13,-0.76l-4.18,-0.6l-4.23,-0.43l-4.28,-0.26l-4.33,-0.08l-4.32,0.08l-4.28,0.26l-4.24,0.43l-4.18,0.6l-4.13,0.76l-4.07,0.92l-4.01,1.07l-3.94,1.23l-3.88,1.38l-3.8,1.52l-3.73,1.67l-3.65,1.8l-3.57,1.94l-3.49,2.08l-0.13,0.08l26.92,-37.36l28.5,-39.55l28.5,39.55l26.93,37.36z"/>
+  <clipPath id="clipbqNoL8SJx">
+   <use x="-71.89" y="-46" id="svg_1" xlink:href="#dC9cMKYD5"/>
+  </clipPath>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="80" width="114" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_2">
+   <g id="svg_3">
+    <g id="svg_4">
+     <use x="-71.89" y="-46" id="svg_5" fill-opacity="0.99" fill="#ffffff" xlink:href="#dC9cMKYD5"/>
+     <g id="svg_6" clip-path="url(#clipbqNoL8SJx)">
+      <use x="-71.89" y="-46" id="svg_7" stroke-width="22" stroke="#000000" fill-opacity="0" xlink:href="#dC9cMKYD5"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
