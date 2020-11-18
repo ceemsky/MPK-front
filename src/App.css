@@ -6,6 +6,19 @@ img{
   transform-origin: 50% 62%;
   transform: rotate(180deg);
 }
-
+.red-dot {
+  height: 15px;
+  width: 15px;
+  background-color: #f00;
+  border-radius: 50%;
+  display: inline-block;
+}
+.green-dot {
+  height: 15px;
+  width: 15px;
+  background-color: #0f0;
+  border-radius: 50%;
+  display: inline-block;
+}
 
 

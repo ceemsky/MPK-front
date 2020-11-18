@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@capacitor/android": "^2.4.2",
+    "@capacitor/core": "^2.4.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "http-proxy-middleware": "^1.0.5",
     "leaflet": "^1.7.1",
+    "leaflet-rotatedmarker": "^0.2.0",
     "merge-images": "^2.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -37,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "@capacitor/cli": "2.4.2",
     "axios": "^0.20.0"
   },
   "proxy": "http://91.223.13.70/internetservice"

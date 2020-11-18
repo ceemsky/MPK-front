@@ -1,0 +1,7 @@
+{
+  "name": "mpk.front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
