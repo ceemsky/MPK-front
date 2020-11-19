@@ -20,5 +20,30 @@ img{
   border-radius: 50%;
   display: inline-block;
 }
+.blue-dot {
+  height: 15px;
+  width: 15px;
+  background-color: #00f;
+  border-radius: 50%;
+  display: inline-block;
+}
+div.left-panel{
+  height:70%;
+  width: 20%;
+  background-color: #ffffff;
+  border: 1px solid black;
+  position: relative;
+  margin: 10px;
+  z-index: 1000;
+  overflow: auto;
+}
+.stops-box{
+
+}
+.filter-box{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+}
 
 

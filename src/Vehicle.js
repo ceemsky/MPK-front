@@ -7,14 +7,6 @@ import {DivIcon} from "leaflet/dist/leaflet-src.esm";
 
 class Vehicle extends Component {
     render() {
-        const htmlTemplate = (
-            <div style="position: relative;text-align: center; color: white;">
-                <img src="/bus_icon.svg"/>
-                <div style="position: relative;top: 62%;left: 50%;transform-origin: 50% 62%;">
-                    dupa
-                </div>
-            </div>
-        );
         let busIcon = new DivIcon({
             className: "my-custom-pin",
             html:

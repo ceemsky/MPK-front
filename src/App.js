@@ -4,6 +4,8 @@ import './App.css';
 
 import Vehicle from "./Vehicle";
 import StopsPopup from "./StopsPopup";
+import StopsPanel from "./StopsPanel";
+import FilterPanel from "./FilterPanel";
 
 const vehiclesUrl = '/geoserviceDispatcher/services/vehicleinfo/vehicles';
 const tripStopsUrl = '/services/tripInfo/tripPassages?tripId=';
@@ -16,13 +18,15 @@ class App extends Component {
             lastUpdate: null,
             vehicles: [],
             activeVehicle: null,
-            activeStops: []
+            activeStops: [],
+            activeLines:[]
         }
-        this.handleClick = this.handleClick.bind(this);
-        this.handleClose = this.handleClose.bind(this);
+        this.handleIconClick = this.handleIconClick.bind(this);
+        this.handleFilterClick = this.handleFilterClick.bind(this);
     }
 
-    async handleClick(id, e) {
+    async handleIconClick(id, e) {
+        this.setState(state => ({activeVehicle:null}));
         this.setState(state => ({
             activeVehicle: this.state.vehicles.find(vehicle => vehicle.id == id)
         }))
@@ -33,18 +37,17 @@ class App extends Component {
                     activeStops: data.actual==[]?[]:data
                 });
             });
-        try {
-            console.log(this.state.activeStops.old[0].stop.name)
+    }
+    handleFilterClick(id,line,e){
+        if (document.getElementById(id).checked)
+        {
+            this.state.activeLines.push(line);
+        } else {
+            this.state.activeLines.pop(line);
         }
-        catch (e){}
+        console.log(this.state.activeLines);
+        this.render();
     }
-    handleClose(e){
-        this.setState({
-            activeVehicle: null,
-            activeTripStops: null
-        })
-    }
-
     componentDidMount() {
         fetch(vehiclesUrl)
             .then((response) => response.json())
@@ -58,26 +61,26 @@ class App extends Component {
 
     render() {
         return (
-            <Map center={[50.049683, 19.944544]} zoom={13}>
+            <Map center={[50.049683, 19.944544]} zoom={13} >
                 <TileLayer
                     url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
                     attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
-                {this.state.vehicles.map(vehicle =>
+                {this.state.vehicles.filter(vehicle=>this.state.activeLines.includes(vehicle.name.substring(0, 3)).then(activeVehicles=>activeVehicles.map(vehicle =>
                     <Vehicle
                         id={vehicle.id}
                         pos={[vehicle.latitude, vehicle.longitude]}
                         heading={vehicle.heading}
                         line={vehicle.name.substring(0, 3)}
-                        onClick={this.handleClick}
+                        onClick={this.handleIconClick}
                     />
-                )}
-                {this.state.activeVehicle && (<StopsPopup
-                    pos={[this.state.activeVehicle.latitude,this.state.activeVehicle.longitude]}
-                    onClose={this.handleClose}
-                    name={this.state.activeVehicle.name}
-                    activeStops={this.state.activeStops}/>)}
-
+                )))}
+                <div className={"left-panel"}>
+                    {/*{this.state.activeVehicle && (<StopsPanel*/}
+                    {/*    name={this.state.activeVehicle.name}*/}
+                    {/*    activeStops={this.state.activeStops}/>)}*/}
+                    <FilterPanel vehicles ={this.state.vehicles} onClick={this.handleFilterClick}></FilterPanel>
+                </div>
             </Map>
         );
 

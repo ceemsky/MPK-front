@@ -18,6 +18,10 @@ class StopInfo extends Component {
             this.setState({
                 dot: "green-dot"
             })
+        if (this.props.stop.status === "STOPPING")
+            this.setState({
+                dot: "blue-dot"
+            })
     }
 
     render() {
