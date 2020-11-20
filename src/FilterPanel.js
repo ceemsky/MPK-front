@@ -20,7 +20,7 @@ class FilterPanel extends Component {
 
                     {this.state.lines.map(line =>
                         <div>
-                            <input type={"checkbox"} id={"filter_"+line} onClick={(e)=>this.props.onClick("filter_"+line,line,e)}/>
+                            <input type={"checkbox"} id={"filter_"+line} onClick={(e)=>this.props.onClick("filter_"+line,line.toString(),e)}/>
                             <label>{line}</label>
                         </div>
                     )}

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react';
 import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
 import './App.css';
 
@@ -49,6 +50,7 @@ class App extends Component {
         this.render();
     }
     componentDidMount() {
+        this.fetcher=setInterval(()=>
         fetch(vehiclesUrl)
             .then((response) => response.json())
             .then(data => {
@@ -56,17 +58,18 @@ class App extends Component {
                     lastUpdate: data.lastUpdate,
                     vehicles: data.vehicles.filter(vehicle => !vehicle.isDeleted)
                 });
-            });
+            }),1000);
     }
-
     render() {
+        let filteredVehicles= this.state.vehicles.filter(vehicle=>this.state.activeLines.includes(vehicle.name.substring(0,3)))
+        console.log(filteredVehicles);
         return (
-            <Map center={[50.049683, 19.944544]} zoom={13} >
+            <Map center={[50.049683, 19.944544]} zoom={13} id={"map"} >
                 <TileLayer
                     url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
                     attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
-                {this.state.vehicles.filter(vehicle=>this.state.activeLines.includes(vehicle.name.substring(0, 3)).then(activeVehicles=>activeVehicles.map(vehicle =>
+                {filteredVehicles.map(vehicle =>
                     <Vehicle
                         id={vehicle.id}
                         pos={[vehicle.latitude, vehicle.longitude]}
@@ -74,11 +77,11 @@ class App extends Component {
                         line={vehicle.name.substring(0, 3)}
                         onClick={this.handleIconClick}
                     />
-                )))}
+                )}
                 <div className={"left-panel"}>
-                    {/*{this.state.activeVehicle && (<StopsPanel*/}
-                    {/*    name={this.state.activeVehicle.name}*/}
-                    {/*    activeStops={this.state.activeStops}/>)}*/}
+                    {this.state.activeVehicle && (<StopsPanel
+                        name={this.state.activeVehicle.name}
+                        activeStops={this.state.activeStops}/>)}
                     <FilterPanel vehicles ={this.state.vehicles} onClick={this.handleFilterClick}></FilterPanel>
                 </div>
             </Map>
