@@ -19,13 +19,22 @@ class StopsPanel extends Component {
     }
 
     render() {
+        console.log(this.props.stops);
+        if(this.props.name!=null)
         return (
                 <div className={"stops-box"}>
                     <h2>Przystanki {this.props.name}</h2>
-                    {this.state.stops.map(stop=>
+                    {this.props.stops && this.props.stops.map(stop=>
                         <StopInfo stop={stop}/>)}
                 </div>
         )
+        else
+            return(
+                <div className={"stops-box"}>
+                    <h2>Przystanki {this.props.name}</h2>
+                    <h4>Nie wybrano autobusu</h4>
+                </div>
+            )
     }
 }
 

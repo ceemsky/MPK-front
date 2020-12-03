@@ -17,10 +17,14 @@ class FilterPanel extends Component {
             <div>
                 <h2>Filtrowanie linii</h2>
                 <div className={"filter-box"}>
-
                     {this.state.lines.map(line =>
                         <div>
-                            <input type={"checkbox"} id={"filter_"+line} onClick={(e)=>this.props.onClick("filter_"+line,line.toString(),e)}/>
+                            <input
+                                type={"checkbox"}
+                                id={"filter_"+line}
+                                onClick={(e)=>this.props.onClick("filter_"+line,line.toString(),e)}
+                                checked={this.props.activeLines.includes(line.toString())}
+                                />
                             <label>{line}</label>
                         </div>
                     )}
