@@ -11,6 +11,7 @@ import LeftPanel from "./LeftPanel";
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
 import {instanceOf} from "prop-types";
 import CookieConsent from "react-cookie-consent";
+import SearchPanel from "./SearchPanel";
 
 const vehiclesUrl = '/geoserviceDispatcher/services/vehicleinfo/vehicles';
 const tripStopsUrl = '/services/tripInfo/tripPassages?tripId=';
@@ -19,7 +20,6 @@ class App extends Component {
     static propTypes = {
         cookies: instanceOf(Cookies)
     };
-
     constructor(props) {
         super(props);
         this.state = {
@@ -32,6 +32,7 @@ class App extends Component {
         }
         this.handleIconClick = this.handleIconClick.bind(this);
         this.handleFilterClick = this.handleFilterClick.bind(this);
+        this.handleStopZoom = this.handleStopZoom.bind(this);
         this.fetcher = setInterval(() =>
             fetch(vehiclesUrl)
                 .then((response) => response.json())
@@ -75,7 +76,9 @@ class App extends Component {
         this.render();
     }
 
-    handleStopZoom(stopId) {
+    handleStopZoom(lat,lng,e) {
+        console.log("zoom handler");
+        this.map.flyTo([lat,lng],17);
     }
 
     componentDidMount() {
@@ -85,12 +88,13 @@ class App extends Component {
             stops: stops.stops,
             activeLines: this.props.cookies.get("activeLines") ? this.props.cookies.get("activeLines") : [],
         });
+        this.map = this.mapInstance.leafletElement;
     }
 
     render() {
         let filteredVehicles = this.state.vehicles.filter(vehicle => this.state.activeLines.includes(vehicle.name.substring(0, 3)))
         return (
-            <Map center={[50.049683, 19.944544]} zoom={13} id={"map"}>
+            <Map center={[50.049683, 19.944544]} zoom={13} id={"map"} ref={e => { this.mapInstance = e }}>
                 <TileLayer
                     url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
                     attribution='&copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -104,13 +108,13 @@ class App extends Component {
                         onClick={this.handleIconClick}
                     />
                 )}
-                {/*{this.state.stops.map(stop=>*/}
-                {/*<Stop*/}
-                {/*    lat={stop.stop_lat}*/}
-                {/*    lng={stop.stop_lon}*/}
-                {/*    name={stop.stop_name}*/}
-                {/*    />*/}
-                {/*)}*/}
+                {this.state.stops.map(stop=>
+                <Stop
+                    lat={stop.stop_lat}
+                    lng={stop.stop_lon}
+                    name={stop.stop_name}
+                    />
+                )}
 
                 <div className={"left-panel"}>
                     <Tabs>
@@ -126,10 +130,13 @@ class App extends Component {
                         </TabPanel>
                         <TabPanel>
                             <FilterPanel vehicles={this.state.vehicles} onClick={this.handleFilterClick}
-                                         activeLines={this.state.activeLines}></FilterPanel>
+                                         activeLines={this.state.activeLines}
+                            ></FilterPanel>
                         </TabPanel>
                         <TabPanel>
-                            {/*<SearchPanel/>*/}
+                            <SearchPanel stops={this.state.stops}
+                            handleZoom={this.handleStopZoom}
+                            />
                         </TabPanel>
                     </Tabs>
                 </div>
